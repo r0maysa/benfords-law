@@ -1,5 +1,3 @@
-import csv
-
 with open('sales.csv') as file:
     reader = csv.DictReader(file)
 
@@ -38,16 +36,17 @@ with open('sales.csv') as file:
             count9 += 1
             total += 1
 
-count0_per = round((count0/total)*100, 2)
-count1_per = round((count1/total)*100, 2)
-count2_per = round((count2/total)*100, 2)
-count3_per = round((count3/total)*100, 2)
-count4_per = round((count4/total)*100, 2)
-count5_per = round((count5/total)*100, 2)
-count6_per = round((count6/total)*100, 2)
-count7_per = round((count7/total)*100, 2)
-count8_per = round((count8/total)*100, 2)
-count9_per = round((count9/total)*100, 2)
+count0_per = round((count0 / total) * 100, 2)
+count1_per = round((count1 / total) * 100, 2)
+count2_per = round((count2 / total) * 100, 2)
+count3_per = round((count3 / total) * 100, 2)
+count4_per = round((count4 / total) * 100, 2)
+count5_per = round((count5 / total) * 100, 2)
+count6_per = round((count6 / total) * 100, 2)
+count7_per = round((count7 / total) * 100, 2)
+count8_per = round((count8 / total) * 100, 2
+)
+count9_per = round((count9 / total) * 100, 2)
 print('Total Rows= ' + str(total))
 print('Number 0  count= ' + str(count0) + '     %=' + str(count0_per))
 print('Number 1  count= ' + str(count1) + '     %=' + str(count1_per))
@@ -62,11 +61,28 @@ print('Number 9  count= ' + str(count9) + '     %=' + str(count9_per))
 
 variable_x = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
 variable_y = [count0, count1, count2, count3, count4, count5, count6, count7, count8, count9]
-variable_p = [str(count0_per)+'%', str(count1_per)+'%', str(count2_per)+'%', str(count3_per)+'%',
-              str(count4_per)+'%',
-              str(count5_per)+'%', str(count6_per)+'%', str(count7_per)+'%', str(count8_per)+'%',
-              str(count9_per)+'%']
+variable_p = [str(count0_per) + '%', str(count1_per) + '%', str(count2_per) + '%', str(count3_per) + '%',
+              str(count4_per) + '%',
+              str(count5_per) + '%', str(count6_per) + '%', str(count7_per) + '%', str(count8_per) + '%',
+              str(count9_per) + '%']
+#without %
+variable_op = [count0_per, count1_per, count2_per, count3_per,  count4_per, count5_per, count6_per, count7_per, count8_per,
+              count9_per]
 
 print(variable_x)
 print(variable_y)
 print(variable_p)
+
+
+
+
+plt.bar(variable_x, variable_op, color="navy", edgecolor='gray')
+addlabels(variable_x, variable_op)
+plt.title('Benford\'s Law Distribution Leading Digit', fontsize=16)
+plt.suptitle('Romaysa Assignment')
+plt.rcParams['font.size'] = 2
+plt.xlabel('Digit', fontweight='bold', color='navy')
+plt.ylabel('Percent', fontweight='bold', color='navy')
+
+plt.show()
+
